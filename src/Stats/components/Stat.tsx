@@ -33,7 +33,7 @@ export const Stat: FC<StatProps> = ({ topicId, value, sendToServer }) => {
             <h3>{topicId}</h3>
             {isEditing ? (
                 <input
-                    value={newValue} // Bind to newValue
+                    value={newValue}
                     onChange={handleInputChange}
                     type="text"
                     onBlur={handleInputSubmit}
