@@ -1,7 +1,15 @@
-import { FC, useRef, useState } from "react";
+import { FC, useState } from "react";
 import { sendMessageToServer } from "@DataLib/websocket";
 
-export const Stat: FC<{ topicId: string; value: string }> = ({ topicId, value }) => {
+
+export interface StatProps {
+    /** topicID comments  */
+    topicId: string;
+    /** value comments */
+    value: string
+}
+
+export const Stat: FC<StatProps> = ({ topicId, value }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [newValue, setNewValue] = useState(value);
 
