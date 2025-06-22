@@ -1,6 +1,4 @@
 import { FC, useState } from "react";
-import { sendMessageToServer } from "@DataLib/websocket";
-
 
 export interface StatProps {
     /** topicID comments  */
@@ -11,6 +9,14 @@ export interface StatProps {
     sendToServer: (topic: string, value: string) => void
 }
 
+/**
+ * Workhorse of the Stats Page, 
+ * 
+ * How does this change if the we use a popup?
+ * 
+ * @param StatProps 
+ * @returns 
+ */
 export const Stat: FC<StatProps> = ({ topicId, value, sendToServer }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [newValue, setNewValue] = useState(value);
