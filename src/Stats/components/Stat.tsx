@@ -7,9 +7,11 @@ export interface StatProps {
     topicId: string;
     /** value comments */
     value: string
+    /** sendToServer */
+    sendToServer: (topic: string, value: string) => void
 }
 
-export const Stat: FC<StatProps> = ({ topicId, value }) => {
+export const Stat: FC<StatProps> = ({ topicId, value, sendToServer }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [newValue, setNewValue] = useState(value);
 
@@ -22,7 +24,7 @@ export const Stat: FC<StatProps> = ({ topicId, value }) => {
     };
 
     const handleInputSubmit = () => {
-        sendMessageToServer(topicId, newValue);
+        sendToServer(topicId, newValue);
         setIsEditing(false);
     };
 
